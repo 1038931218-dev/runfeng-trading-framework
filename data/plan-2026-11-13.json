@@ -1,52 +1,21 @@
 {
  "date": "2026-11-13",
- "generated_at": "2026-11-12 22:03:12",
+ "generated_at": "2026-11-12 16:46:58",
  "plan_name": "2026-11-13 交易日监控计划（make_plan 自动生成，润行终审后生效）",
  "account": {
-  "broker": "平安证券",
-  "total_assets": 11781.17,
-  "cash": 8566.17,
+  "broker": "某券商",
+  "total_assets": null,
+  "cash": null,
   "positions": [
    {
     "symbol": "sz000002",
     "name": "万 科Ａ",
-    "qty": 200,
-    "sellable": 200,
-    "cost": 3.3425,
-    "cost_broker_diluted": 3.5517,
-    "price": 3.14,
-    "market_value": 628.0,
-    "pnl": -40.5,
-    "pnl_pct": -6.06,
-    "pnl_broker_diluted": -82.34,
-    "day_pnl": -12.0,
-    "day_pnl_pct": -1.875
+    "qty": 200
    },
    {
     "symbol": "sz002600",
     "name": "领益智造",
-    "qty": 100,
-    "sellable": 0,
-    "cost": 11.8801,
-    "price": 11.47,
-    "market_value": 1147.0,
-    "pnl": -41.01,
-    "pnl_pct": -3.45,
-    "day_pnl": -36.0,
-    "day_pnl_pct": -3.043
-   },
-   {
-    "symbol": "sh601006",
-    "name": "大秦铁路",
-    "qty": 300,
-    "sellable": 300,
-    "cost": 4.9267,
-    "price": 4.8,
-    "market_value": 1440.0,
-    "pnl": -38.01,
-    "pnl_pct": -2.57,
-    "day_pnl": 0.0,
-    "day_pnl_pct": 0.0
+    "qty": 100
    }
   ]
  },
@@ -55,7 +24,11 @@
   "sz399006",
   "sz000002",
   "sz002600",
-  "sh601006"
+  "sh600825",
+  "sh603730",
+  "sz002639",
+  "sz002292",
+  "sh600977"
  ],
  "rules": [
   {
@@ -127,18 +100,6 @@
    "note": "T+1 明日可卖；止损 11.37（MA20），站回 11.95 可持有；反弹 12.0 提示"
   },
   {
-   "id": "sh601006_stop_1_4_663",
-   "label": "大秦铁路 止损 4.663（云条件单/硬止损）",
-   "symbol": "sh601006",
-   "op": "<=",
-   "price": 4.663,
-   "action": "sell_ready",
-   "side": "sell",
-   "qty": 300,
-   "cooldown_sec": 600,
-   "note": "；现价 4.8，MA20 4.874"
-  },
-  {
    "id": "index_pct_drop",
    "label": "上证日内跌幅≤-3.0%（极端风险）",
    "symbol": "sh000001",
@@ -176,17 +137,69 @@
    "note": "用户已授权：不等用户确认，直接市价/对手价卖出该持仓"
   },
   {
-   "id": "sh601006_emergency_pct",
-   "label": "大秦铁路 日内跌幅≤-7.0% 紧急止损",
-   "symbol": "sh601006",
+   "id": "sh600825_buy",
+   "label": "新华传媒 1 手买点",
+   "symbol": "sh600825",
    "op": "<=",
-   "price": -7.0,
-   "field": "pct",
-   "action": "emergency_sell",
-   "side": "sell",
-   "qty": 300,
-   "cooldown_sec": 300,
-   "note": "用户已授权：不等用户确认，直接市价/对手价卖出该持仓"
+   "price": 14.23,
+   "floor": 13.8,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 3600,
+   "note": "评分0.947；波动86.3%；mom20 5.73%；额18.89亿；MA20 14.23，MA60 8.812"
+  },
+  {
+   "id": "sh603730_buy",
+   "label": "岱美股份 1 手买点",
+   "symbol": "sh603730",
+   "op": "<=",
+   "price": 10.17,
+   "floor": 9.86,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 3600,
+   "note": "评分0.864；波动85.9%；mom20 4.62%；额6.92亿；MA20 10.174，MA60 10.171"
+  },
+  {
+   "id": "sz002639_buy",
+   "label": "雪人集团 1 手买点",
+   "symbol": "sz002639",
+   "op": "<=",
+   "price": 14.68,
+   "floor": 14.24,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 3600,
+   "note": "评分0.833；波动74.8%；mom20 -0.91%；额16.88亿；MA20 14.684，MA60 13.712"
+  },
+  {
+   "id": "sz002292_buy",
+   "label": "奥飞娱乐 1 手买点",
+   "symbol": "sz002292",
+   "op": "<=",
+   "price": 9.21,
+   "floor": 8.93,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 3600,
+   "note": "评分0.833；波动78.7%；mom20 4.71%；额10.51亿；MA20 9.206，MA60 8.751"
+  },
+  {
+   "id": "sh600977_buy",
+   "label": "中国电影 1 手买点",
+   "symbol": "sh600977",
+   "op": "<=",
+   "price": 14.95,
+   "floor": 14.5,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 3600,
+   "note": "评分0.76；波动43.5%；mom20 9.31%；额7.23亿；MA20 14.954，MA60 13.552"
   }
  ],
  "guards": {
@@ -222,13 +235,6 @@
   "ma20": 3672.711,
   "low250": 3574.27
  },
- "skipped_candidates": [
-  "新华传媒(持仓已 3 只，满仓不买入)",
-  "岱美股份(持仓已 3 只，满仓不买入)",
-  "雪人集团(持仓已 3 只，满仓不买入)",
-  "奥飞娱乐(持仓已 3 只，满仓不买入)",
-  "中国电影(持仓已 3 只，满仓不买入)"
- ],
  "emergency_policy": {
   "authorized_by": "用户 2026-11-07",
   "L0": "计划内止损触发即卖（免密，不请示）",
