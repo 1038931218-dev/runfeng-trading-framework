@@ -1,0 +1,10 @@
+{
+ "version": 1,
+ "updated": "2026-11-11",
+ "weights": {"ma20_slope": 0.30, "ma_fit": 0.25, "vol_ratio": 0.15, "volatility": 0.30},
+ "mom20_max": 0.15,
+ "amount_min_yi": 2,
+ "vol20_min": 25,
+ "vol20_max": 90,
+ "note": "选股评分权重与阈值；由 tools/pool_tune.py 在样本≥20 条时自动网格搜索更新"
+}

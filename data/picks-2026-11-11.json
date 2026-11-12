@@ -1,0 +1,71 @@
+{
+ "date": "2026-11-11",
+ "snapshot": "snapshot-2026-11-11.json",
+ "count": 16,
+ "picks": [
+  {
+   "symbol": "sh601658",
+   "name": "邮储银行",
+   "price": 5.63,
+   "strategy": "A 回踩MA20",
+   "score": 9.97,
+   "note": "MA20 5.61 上方多头，缩量 0.99，mom20 1.4%"
+  },
+  {
+   "symbol": "sh601939",
+   "name": "建设银行",
+   "price": 11.92,
+   "strategy": "A 回踩MA20",
+   "score": 9.92,
+   "note": "MA20 11.74 上方多头，缩量 1.03，mom20 4.6%"
+  },
+  {
+   "symbol": "sh601919",
+   "name": "中远海控",
+   "price": 17.03,
+   "strategy": "A 回踩MA20",
+   "score": 9.83,
+   "note": "MA20 16.87 上方多头，缩量 0.94，mom20 0.9%"
+  },
+  {
+   "symbol": "sh601398",
+   "name": "工商银行",
+   "price": 8.53,
+   "strategy": "A 回踩MA20",
+   "score": 9.81,
+   "note": "MA20 8.52 上方多头，缩量 0.91，mom20 2.8%"
+  },
+  {
+   "symbol": "sh600900",
+   "name": "长江电力",
+   "price": 29.48,
+   "strategy": "A 回踩MA20",
+   "score": 9.74,
+   "note": "MA20 29.65 上方多头，缩量 0.89，mom20 0.1%"
+  },
+  {
+   "symbol": "sz002415",
+   "name": "海康威视",
+   "price": 34.25,
+   "strategy": "A 回踩MA20",
+   "score": 9.73,
+   "note": "MA20 34.24 上方多头，缩量 0.87，mom20 0.6%"
+  },
+  {
+   "symbol": "sz003006",
+   "name": "百亚股份",
+   "price": 23.35,
+   "strategy": "A 回踩MA20",
+   "score": 9.72,
+   "note": "MA20 22.96 上方多头，缩量 0.90，mom20 2.0%"
+  },
+  {
+   "symbol": "sh600406",
+   "name": "国电南瑞",
+   "price": 23.1,
+   "strategy": "A 回踩MA20",
+   "score": 9.7,
+   "note": "MA20 23.33 上方多头，缩量 0.87，mom20 4.1%"
+  }
+ ]
+}

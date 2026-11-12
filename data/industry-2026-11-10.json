@@ -1,0 +1,446 @@
+{
+ "generated_at": "2026-11-10 15:24:03",
+ "rows": [
+  {
+   "node": "new_cmyl",
+   "name": "传媒娱乐",
+   "count": 40,
+   "pct": 4.46,
+   "amount_yi": 241.8,
+   "leader_code": "sz300426",
+   "leader_name": "华智数媒"
+  },
+  {
+   "node": "new_fzjx",
+   "name": "纺织机械",
+   "count": 8,
+   "pct": 2.64,
+   "amount_yi": 7.9,
+   "leader_code": "sz002021",
+   "leader_name": "中捷资源"
+  },
+  {
+   "node": "new_zzhy",
+   "name": "造纸行业",
+   "count": 24,
+   "pct": 2.58,
+   "amount_yi": 61.3,
+   "leader_code": "sh600793",
+   "leader_name": "宜宾纸业"
+  },
+  {
+   "node": "new_slzp",
+   "name": "塑料制品",
+   "count": 33,
+   "pct": 2.34,
+   "amount_yi": 47.5,
+   "leader_code": "sz002343",
+   "leader_name": "慈文传媒"
+  },
+  {
+   "node": "new_jjhy",
+   "name": "家具行业",
+   "count": 16,
+   "pct": 2.3,
+   "amount_yi": 15.8,
+   "leader_code": "sz002631",
+   "leader_name": "德尔未来"
+  },
+  {
+   "node": "new_dzxx",
+   "name": "电子信息",
+   "count": 247,
+   "pct": 1.99,
+   "amount_yi": 1091.1,
+   "leader_code": "sz300264",
+   "leader_name": "佳创视讯"
+  },
+  {
+   "node": "new_qczz",
+   "name": "汽车制造",
+   "count": 103,
+   "pct": 1.95,
+   "amount_yi": 342.1,
+   "leader_code": "sh600609",
+   "leader_name": "金杯汽车"
+  },
+  {
+   "node": "new_ylqx",
+   "name": "医疗器械",
+   "count": 31,
+   "pct": 1.94,
+   "amount_yi": 63.3,
+   "leader_code": "sz002432",
+   "leader_name": "九安医疗"
+  },
+  {
+   "node": "new_ysbz",
+   "name": "印刷包装",
+   "count": 20,
+   "pct": 1.94,
+   "amount_yi": 55.5,
+   "leader_code": "sz300071",
+   "leader_name": "福石控股"
+  },
+  {
+   "node": "new_dzqj",
+   "name": "电子器件",
+   "count": 152,
+   "pct": 1.78,
+   "amount_yi": 1086.9,
+   "leader_code": "sz300154",
+   "leader_name": "瑞凌股份"
+  },
+  {
+   "node": "new_jxhy",
+   "name": "机械行业",
+   "count": 211,
+   "pct": 1.76,
+   "amount_yi": 685.4,
+   "leader_code": "sz002535",
+   "leader_name": "林州重机"
+  },
+  {
+   "node": "new_qtxy",
+   "name": "其它行业",
+   "count": 202,
+   "pct": 1.71,
+   "amount_yi": 144.2,
+   "leader_code": "sz300458",
+   "leader_name": "全志科技"
+  },
+  {
+   "node": "new_yqyb",
+   "name": "仪器仪表",
+   "count": 48,
+   "pct": 1.67,
+   "amount_yi": 140.8,
+   "leader_code": "sz300007",
+   "leader_name": "汉威科技"
+  },
+  {
+   "node": "new_kfq",
+   "name": "开发区",
+   "count": 10,
+   "pct": 1.61,
+   "amount_yi": 10.0,
+   "leader_code": "sz000628",
+   "leader_name": "高新发展"
+  },
+  {
+   "node": "new_stock",
+   "name": "次新股",
+   "count": 158,
+   "pct": 1.59,
+   "amount_yi": 487.0,
+   "leader_code": "sh688781",
+   "leader_name": "视涯科技"
+  },
+  {
+   "node": "new_fdc",
+   "name": "房地产",
+   "count": 123,
+   "pct": 1.52,
+   "amount_yi": 141.9,
+   "leader_code": "sh600510",
+   "leader_name": "黑牡丹"
+  },
+  {
+   "node": "new_dqhy",
+   "name": "电器行业",
+   "count": 58,
+   "pct": 1.5,
+   "amount_yi": 195.6,
+   "leader_code": "sh603703",
+   "leader_name": "盛洋科技"
+  },
+  {
+   "node": "new_fzxl",
+   "name": "服装鞋类",
+   "count": 49,
+   "pct": 1.42,
+   "amount_yi": 72.6,
+   "leader_code": "sz002425",
+   "leader_name": "凯撒文化"
+  },
+  {
+   "node": "new_hqhy",
+   "name": "化纤行业",
+   "count": 26,
+   "pct": 1.24,
+   "amount_yi": 61.1,
+   "leader_code": "sz000782",
+   "leader_name": "恒申新材"
+  },
+  {
+   "node": "new_fzhy",
+   "name": "纺织行业",
+   "count": 42,
+   "pct": 1.14,
+   "amount_yi": 48.4,
+   "leader_code": "sh601599",
+   "leader_name": "浙文影业"
+  },
+  {
+   "node": "new_zhhy",
+   "name": "综合行业",
+   "count": 33,
+   "pct": 1.12,
+   "amount_yi": 35.8,
+   "leader_code": "sh600892",
+   "leader_name": "大晟文化"
+  },
+  {
+   "node": "new_snhy",
+   "name": "水泥行业",
+   "count": 26,
+   "pct": 1.01,
+   "amount_yi": 22.6,
+   "leader_code": "sh600802",
+   "leader_name": "福建水泥"
+  },
+  {
+   "node": "new_blhy",
+   "name": "玻璃行业",
+   "count": 19,
+   "pct": 1.0,
+   "amount_yi": 70.9,
+   "leader_code": "sz002623",
+   "leader_name": "亚玛顿"
+  },
+  {
+   "node": "new_ysjs",
+   "name": "有色金属",
+   "count": 72,
+   "pct": 0.96,
+   "amount_yi": 453.8,
+   "leader_code": "sz002501",
+   "leader_name": "*ST利源"
+  },
+  {
+   "node": "new_fdsb",
+   "name": "发电设备",
+   "count": 65,
+   "pct": 0.94,
+   "amount_yi": 141.2,
+   "leader_code": "sz300069",
+   "leader_name": "金利华电"
+  },
+  {
+   "node": "new_jdhy",
+   "name": "家电行业",
+   "count": 37,
+   "pct": 0.62,
+   "amount_yi": 106.5,
+   "leader_code": "sh603366",
+   "leader_name": "日出东方"
+  },
+  {
+   "node": "new_gsgq",
+   "name": "供水供气",
+   "count": 25,
+   "pct": 0.6,
+   "amount_yi": 19.3,
+   "leader_code": "sz000593",
+   "leader_name": "德龙汇能"
+  },
+  {
+   "node": "new_hghy",
+   "name": "化工行业",
+   "count": 150,
+   "pct": 0.6,
+   "amount_yi": 337.3,
+   "leader_code": "sh600281",
+   "leader_name": "华阳新材"
+  },
+  {
+   "node": "new_sybh",
+   "name": "商业百货",
+   "count": 93,
+   "pct": 0.59,
+   "amount_yi": 189.4,
+   "leader_code": "sh600778",
+   "leader_name": "友好集团"
+  },
+  {
+   "node": "new_jzjc",
+   "name": "建筑建材",
+   "count": 91,
+   "pct": 0.57,
+   "amount_yi": 116.5,
+   "leader_code": "sz002310",
+   "leader_name": "东方新能"
+  },
+  {
+   "node": "new_nlmy",
+   "name": "农林牧渔",
+   "count": 64,
+   "pct": 0.55,
+   "amount_yi": 181.4,
+   "leader_code": "sz002086",
+   "leader_name": "东方海洋"
+  },
+  {
+   "node": "new_wzwm",
+   "name": "物资外贸",
+   "count": 21,
+   "pct": 0.53,
+   "amount_yi": 26.9,
+   "leader_code": "sh600278",
+   "leader_name": "东方创业"
+  },
+  {
+   "node": "new_hbhy",
+   "name": "环保行业",
+   "count": 27,
+   "pct": 0.51,
+   "amount_yi": 16.3,
+   "leader_code": "sh603588",
+   "leader_name": "高能时代"
+  },
+  {
+   "node": "new_mtc",
+   "name": "摩托车",
+   "count": 6,
+   "pct": 0.51,
+   "amount_yi": 8.6,
+   "leader_code": "sh600877",
+   "leader_name": "电科芯片"
+  },
+  {
+   "node": "new_jtys",
+   "name": "交通运输",
+   "count": 87,
+   "pct": 0.44,
+   "amount_yi": 146.7,
+   "leader_code": "sz002357",
+   "leader_name": "富临运业"
+  },
+  {
+   "node": "new_gthy",
+   "name": "钢铁行业",
+   "count": 60,
+   "pct": 0.17,
+   "amount_yi": 60.4,
+   "leader_code": "sz002615",
+   "leader_name": "哈尔斯"
+  },
+  {
+   "node": "new_swzz",
+   "name": "生物制药",
+   "count": 155,
+   "pct": 0.04,
+   "amount_yi": 249.8,
+   "leader_code": "sh600829",
+   "leader_name": "人民同泰"
+  },
+  {
+   "node": "new_glql",
+   "name": "公路桥梁",
+   "count": 20,
+   "pct": -0.1,
+   "amount_yi": 29.3,
+   "leader_code": "sh601188",
+   "leader_name": "龙江交通"
+  },
+  {
+   "node": "new_sphy",
+   "name": "食品行业",
+   "count": 58,
+   "pct": -0.12,
+   "amount_yi": 91.5,
+   "leader_code": "sz002387",
+   "leader_name": "维信诺"
+  },
+  {
+   "node": "new_dlhy",
+   "name": "电力行业",
+   "count": 62,
+   "pct": -0.15,
+   "amount_yi": 125.6,
+   "leader_code": "sz002692",
+   "leader_name": "远程股份"
+  },
+  {
+   "node": "new_ljhy",
+   "name": "酿酒行业",
+   "count": 33,
+   "pct": -0.15,
+   "amount_yi": 110.7,
+   "leader_code": "sz000995",
+   "leader_name": "皇台酒业"
+  },
+  {
+   "node": "new_jrhy",
+   "name": "金融行业",
+   "count": 51,
+   "pct": -0.23,
+   "amount_yi": 266.6,
+   "leader_code": "sh601998",
+   "leader_name": "中信银行"
+  },
+  {
+   "node": "new_jdly",
+   "name": "酒店旅游",
+   "count": 35,
+   "pct": -0.25,
+   "amount_yi": 52.2,
+   "leader_code": "sz000802",
+   "leader_name": "北京文化"
+  },
+  {
+   "node": "new_nyhf",
+   "name": "农药化肥",
+   "count": 46,
+   "pct": -0.39,
+   "amount_yi": 64.7,
+   "leader_code": "sz002539",
+   "leader_name": "云图控股"
+  },
+  {
+   "node": "new_fjzz",
+   "name": "飞机制造",
+   "count": 14,
+   "pct": -0.4,
+   "amount_yi": 93.6,
+   "leader_code": "sh600118",
+   "leader_name": "中国卫星"
+  },
+  {
+   "node": "new_mthy",
+   "name": "煤炭行业",
+   "count": 41,
+   "pct": -1.16,
+   "amount_yi": 133.6,
+   "leader_code": "sh600408",
+   "leader_name": "安泰集团"
+  },
+  {
+   "node": "new_syhy",
+   "name": "石油行业",
+   "count": 24,
+   "pct": -1.26,
+   "amount_yi": 69.7,
+   "leader_code": "sz002629",
+   "leader_name": "仁智股份"
+  },
+  {
+   "node": "new_cbzz",
+   "name": "船舶制造",
+   "count": 8,
+   "pct": -1.39,
+   "amount_yi": 30.9,
+   "leader_code": "sz300008",
+   "leader_name": "天海防务"
+  },
+  {
+   "node": "new_tchy",
+   "name": "陶瓷行业",
+   "count": 8,
+   "pct": -1.7,
+   "amount_yi": 16.5,
+   "leader_code": "sz002102",
+   "leader_name": "ST能特"
+  }
+ ]
+}

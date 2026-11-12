@@ -1,0 +1,26 @@
+{
+ "date": "2026-11-12",
+ "holdings": [
+  {
+   "symbol": "sz000002",
+   "name": "万 科Ａ",
+   "composite": null,
+   "grade": null,
+   "role_scores": {}
+  },
+  {
+   "symbol": "sz002600",
+   "name": "领益智造",
+   "composite": null,
+   "grade": null,
+   "role_scores": {}
+  },
+  {
+   "symbol": "sh601006",
+   "name": "大秦铁路",
+   "composite": null,
+   "grade": null,
+   "role_scores": {}
+  }
+ ]
+}

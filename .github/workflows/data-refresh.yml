@@ -1,0 +1,39 @@
+name: data-refresh
+on:
+  schedule:
+    - cron: '10 8 * * 1-5'   # 每个交易日 16:10 北京时间（UTC+8）后抓收盘快照
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Grab A-share snapshot + index
+        run: |
+          python3 tools/market.py index || true
+          python3 tools/market.py snapshot || true
+      - name: Build brief + next plan
+        run: |
+          python3 tools/daily_brief.py || true
+          python3 tools/make_plan.py || true
+      - name: Commit data updates
+        run: |
+          git config user.name "runfeng-bot"
+          git config user.email "runfeng-bot@users.noreply.github.com"
+          git add data/ models/ || true
+          if git diff --cached --quiet; then
+            echo "no data change"
+          else
+            git commit -m "data-refresh $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi
+      - name: Self-test after refresh
+        run: python3 tools/selftest.py

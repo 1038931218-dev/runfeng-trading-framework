@@ -1,0 +1,140 @@
+{
+ "updated_at": "2026-11-11",
+ "note": "每日盯盘计划的输入配置：候选买点区间 + 持仓止损规则；make_plan.py 会刷新价格/均线后生成 data/plan-<日期>.json。人工可改数值，改完留痕到 reports/。",
+ "candidates": [
+  {
+   "symbol": "sh600825",
+   "name": "新华传媒",
+   "side": "buy",
+   "qty": 100,
+   "zone_top": 14.23,
+   "zone_floor": 13.8,
+   "priority": 2,
+   "cooldown_sec": 3600,
+   "note": "评分0.947；波动86.3%；mom20 5.73%；额18.89亿"
+  },
+  {
+   "symbol": "sh603730",
+   "name": "岱美股份",
+   "side": "buy",
+   "qty": 100,
+   "zone_top": 10.17,
+   "zone_floor": 9.86,
+   "priority": 3,
+   "cooldown_sec": 3600,
+   "note": "评分0.864；波动85.9%；mom20 4.62%；额6.92亿"
+  },
+  {
+   "symbol": "sz002639",
+   "name": "雪人集团",
+   "side": "buy",
+   "qty": 100,
+   "zone_top": 14.68,
+   "zone_floor": 14.24,
+   "priority": 4,
+   "cooldown_sec": 3600,
+   "note": "评分0.833；波动74.8%；mom20 -0.91%；额16.88亿"
+  },
+  {
+   "symbol": "sz002292",
+   "name": "奥飞娱乐",
+   "side": "buy",
+   "qty": 100,
+   "zone_top": 9.21,
+   "zone_floor": 8.93,
+   "priority": 5,
+   "cooldown_sec": 3600,
+   "note": "评分0.833；波动78.7%；mom20 4.71%；额10.51亿"
+  },
+  {
+   "symbol": "sh600977",
+   "name": "中国电影",
+   "side": "buy",
+   "qty": 100,
+   "zone_top": 14.95,
+   "zone_floor": 14.5,
+   "priority": 6,
+   "cooldown_sec": 3600,
+   "note": "评分0.76；波动43.5%；mom20 9.31%；额7.23亿"
+  }
+ ],
+ "holdings_rules": [
+  {
+   "symbol": "sz000002",
+   "name": "万 科Ａ",
+   "qty": 200,
+   "stops": [
+    3.1
+   ],
+   "rebound": 3.4,
+   "note": "已减半仓200股@3.16；剩余200股止损3.10；反弹3.40减200（清仓）",
+   "emergency_pct": -7.0,
+   "reduce_qty": 200,
+   "sellable": 200
+  },
+  {
+   "symbol": "sz002600",
+   "name": "领益智造",
+   "qty": 100,
+   "sellable": 0,
+   "stops": [
+    11.37
+   ],
+   "rebound": 12.0,
+   "note": "T+1 明日可卖；止损 11.37（MA20），站回 11.95 可持有；反弹 12.0 提示"
+  }
+ ],
+ "index_rules": {
+  "symbol": "sh000001",
+  "name": "上证指数",
+  "ma20_notify": true,
+  "low250_risk_off": true
+ },
+ "guards": {
+  "no_new_position_before": "10:00",
+  "max_new_positions_today": 1,
+  "note": "小资金：现金≥60%，5044元账户买2手后现金≈55%→红线，故每日最多新开1手；新开仓 1 手金额须≥600元（最低佣金5元使1手<600元费比>1.7%）；同票加仓按合并金额计算；持仓已满2只时不生成任何买单",
+  "min_new_position_value": 600,
+  "pool_updated": "2026-11-12",
+  "pool_note": "11-13：持仓3只已满，不新开；只做止损/减仓",
+  "max_positions": 2
+ },
+ "session": {
+  "weekdays_only": true,
+  "windows": [
+   "09:15-11:30",
+   "13:00-15:00"
+  ],
+  "holidays": [
+   "2027-01-01"
+  ]
+ },
+ "emergency": {
+  "index_pct_drop": -3.0,
+  "holding_pct_drop": -7.0,
+  "note": "极端行情兜底（用户 2026-11-07 授权）：上证日内跌幅≤-3% 取消买入并评估减仓；任一持仓日内跌幅≤-7% 直接紧急止损（不需用户确认）；登录失效时靠云条件单自动委托兜底"
+ },
+ "watch_only": [
+  {
+   "symbol": "sz002400",
+   "name": "省广集团",
+   "grade": "C",
+   "composite": 6.05,
+   "reason": "润策7.0；润研5.5；润量6.0；润控6.0"
+  },
+  {
+   "symbol": "sh600637",
+   "name": "东方明珠",
+   "grade": "C",
+   "composite": 5.65,
+   "reason": "润策6.5；润研6.0；润量4.5；润控6.0"
+  },
+  {
+   "symbol": "sh600879",
+   "name": "航天电子",
+   "grade": "C",
+   "composite": 6.2,
+   "reason": "润策6.5；润研5.5；润量6.5；润控6.5"
+  }
+ ]
+}

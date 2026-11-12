@@ -1,0 +1,190 @@
+{
+ "date": "2026-11-09",
+ "generated_at": "2026-11-07 17:12:26",
+ "plan_name": "2026-11-09 交易日监控计划（make_plan 自动生成，润行终审后生效）",
+ "account": {
+  "broker": "平安证券",
+  "total_assets": 5044.42,
+  "cash": 3748.42,
+  "positions": [
+   {
+    "symbol": "sz000002",
+    "name": "万 科Ａ",
+    "qty": 400,
+    "cost": 3.3425
+   }
+  ]
+ },
+ "watch": [
+  "sh000001",
+  "sz399006",
+  "sz000002",
+  "sh601668",
+  "sh601006",
+  "sh600795"
+ ],
+ "rules": [
+  {
+   "id": "index_ma20_up",
+   "label": "上证收复 MA20 3693.303（升级观察）",
+   "symbol": "sh000001",
+   "op": ">=",
+   "price": 3693.3,
+   "action": "notify",
+   "cooldown_sec": 1800,
+   "note": "收盘站上且连续2日+量能确认后才考虑加仓，盘中只提示"
+  },
+  {
+   "id": "index_250low_break",
+   "label": "上证跌破 250 日低 3574.27（降级）",
+   "symbol": "sh000001",
+   "op": "<=",
+   "price": 3574.27,
+   "action": "risk_off",
+   "cooldown_sec": 900,
+   "note": "系统性风险：取消当日全部买入，只处理卖出"
+  },
+  {
+   "id": "sz000002_stop_1_3_16",
+   "label": "万 科Ａ 止损 3.16（云条件单/硬止损）",
+   "symbol": "sz000002",
+   "op": "<=",
+   "price": 3.16,
+   "action": "sell_ready",
+   "side": "sell",
+   "qty": 400,
+   "cooldown_sec": 600,
+   "note": "3.16 为用户云条件单（人工委托）；3.10 为硬止损；3.40 反弹提示减仓；现价 3.24，MA20 3.405"
+  },
+  {
+   "id": "sz000002_stop_2_3_1",
+   "label": "万 科Ａ 止损 3.1（二次止损）",
+   "symbol": "sz000002",
+   "op": "<=",
+   "price": 3.1,
+   "action": "sell_ready",
+   "side": "sell",
+   "qty": 400,
+   "cooldown_sec": 600,
+   "note": "3.16 为用户云条件单（人工委托）；3.10 为硬止损；3.40 反弹提示减仓；现价 3.24，MA20 3.405"
+  },
+  {
+   "id": "sz000002_rebound",
+   "label": "万 科Ａ 反弹 3.4 减仓提示",
+   "symbol": "sz000002",
+   "op": ">=",
+   "price": 3.4,
+   "action": "notify",
+   "cooldown_sec": 1800,
+   "note": "反弹到均线附近，提示用户是否减仓（不自动执行）"
+  },
+  {
+   "id": "index_pct_drop",
+   "label": "上证日内跌幅≤-3.0%（极端风险）",
+   "symbol": "sh000001",
+   "op": "<=",
+   "price": -3.0,
+   "field": "pct",
+   "action": "risk_off",
+   "cooldown_sec": 600,
+   "note": "极端行情：取消当日全部买入，评估减仓；润行可直接执行紧急止损"
+  },
+  {
+   "id": "sz000002_emergency_pct",
+   "label": "万 科Ａ 日内跌幅≤-7.0% 紧急止损",
+   "symbol": "sz000002",
+   "op": "<=",
+   "price": -7.0,
+   "field": "pct",
+   "action": "emergency_sell",
+   "side": "sell",
+   "qty": 400,
+   "cooldown_sec": 300,
+   "note": "用户已授权：不等用户确认，直接市价/对手价卖出该持仓"
+  },
+  {
+   "id": "sh601006_stop_4_61",
+   "label": "大秦铁路 止损 4.61",
+   "symbol": "sh601006",
+   "op": "<=",
+   "price": 4.61,
+   "action": "sell_ready",
+   "side": "sell",
+   "qty": 100,
+   "cooldown_sec": 600,
+   "note": "2026-11-09 10:04 买入100股@4.90（成本4.95）；止损=min(买价-2ATR20,MA60×0.97)=4.61，距买价-6.2%，最大亏30元(0.6%)"
+  }
+ ],
+ "guards": {
+  "no_new_position_before": "10:00",
+  "max_new_positions_today": 1,
+  "buy_block_if_index_below": 3574.27
+ },
+ "session": {
+  "weekdays_only": true,
+  "windows": [
+   "09:15-11:30",
+   "13:00-15:00"
+  ]
+ },
+ "notify": {
+  "phone": true,
+  "note": "触发后润行通知用户并打开通达信预填单；成交须用户指纹/密码"
+ },
+ "source": {
+  "watchlist": "data/watchlist.json",
+  "account_state": "data/account-state.json",
+  "portfolio": "portfolio-2026-11-06.json"
+ },
+ "index_levels": {
+  "ma20": 3693.303,
+  "low250": 3574.27
+ },
+ "emergency_policy": {
+  "authorized_by": "用户 2026-11-07",
+  "L0": "计划内止损触发即卖（免密，不请示）",
+  "L1": "上证日跌幅≤-3.0% 或持仓日跌幅≤-7.0% → 直接紧急止损",
+  "L2": "离线兜底：通达信云条件单（当前仅人工委托，自动委托本机未开放）"
+ },
+ "rules_disabled_today": [
+  {
+   "id": "sh601668_buy",
+   "label": "中国建筑 1 手买点",
+   "symbol": "sh601668",
+   "op": "<=",
+   "price": 4.66,
+   "floor": 4.57,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 900,
+   "note": "回踩 MA20 区间；10:00 前不新开仓；上证破 250 日低则取消；MA20 4.568，MA60 4.438"
+  },
+  {
+   "id": "sh600795_buy",
+   "label": "国电电力 1 手买点",
+   "symbol": "sh600795",
+   "op": "<=",
+   "price": 5.37,
+   "floor": 5.28,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 900,
+   "note": "备选，最多 1 手；MA20 5.277，MA60 5.24"
+  },
+  {
+   "id": "sh601006_buy",
+   "label": "大秦铁路 1 手买点",
+   "symbol": "sh601006",
+   "op": "<=",
+   "price": 4.91,
+   "floor": 4.81,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 900,
+   "note": "类债防御；与上条合计不超过 2 只/2 手；MA20 4.89，MA60 4.747"
+  }
+ ]
+}

@@ -1,0 +1,545 @@
+{
+ "as_of": "2026-11-10",
+ "data_date": "2026-11-06 收盘（Sina 日K 末根 2026-11-06；快照生成 2026-11-06 22:16:22）",
+ "generated_at": "2026-11-10 15:25:07",
+ "script": "tools/risk_metrics.py",
+ "reproduce": "python3 tools/risk_metrics.py",
+ "environment": {
+  "python": "3.12.15",
+  "platform": "linux",
+  "packages": {
+   "empyrical": "0.7.2",
+   "quantstats": "0.0.86",
+   "arch": "8.0.0",
+   "pandas": "3.1.1",
+   "numpy": "2.5.4",
+   "scipy": "1.18.1"
+  },
+  "gpu": "无（纯 CPU）"
+ },
+ "data_sources": {
+  "bars": "Sina CN_MarketData.getKLineData（scale=240, datalen=250；腾讯 fqkline 本机 HTTP 501 不可用）",
+  "snapshot": "data/snapshot-2026-11-06.json（只读）",
+  "portfolio": "models/portfolio-2026-11-06.json（只读）",
+  "screen": "models/screen-2026-11-06.csv（只读，价格交叉核对）"
+ },
+ "validation": {
+  "symbols_fetched": 13,
+  "symbols_failed": [],
+  "bars_last_date_ok": true,
+  "kline_vs_snapshot_price_mismatch": [],
+  "screen_csv_vs_snapshot_price_mismatch": [],
+  "n_bars_per_symbol": 250
+ },
+ "objects": {
+  "portfolio_12": {
+   "label": "12只组合（38%股票+62%现金）",
+   "n_returns": 250,
+   "annual_return_pct": 3.32,
+   "annual_volatility_pct": 5.2,
+   "max_drawdown_pct": -5.5,
+   "sharpe": 0.65,
+   "sortino": 0.98,
+   "calmar": 0.6,
+   "var95_daily_pct": -0.55,
+   "var99_daily_pct": -0.85,
+   "cvar95_daily_pct": -0.7,
+   "metrics_source": "empyrical-reloaded",
+   "quantstats_crosscheck": {
+    "error": "未能核实: Input data must be pandas Series or DataFrame, got <class 'numpy.ndarray'>"
+   },
+   "garch": {
+    "cond_vol_daily_pct": 0.45,
+    "var95_1d_pct": -0.75,
+    "var95_5d_pct": -1.66,
+    "note": null
+   },
+   "weights_pct": {
+    "工商银行": 5.0,
+    "中国平安": 3.0,
+    "中国移动": 5.0,
+    "中国石油": 3.0,
+    "中国神华": 3.0,
+    "中国建筑": 3.0,
+    "格力电器": 3.0,
+    "大秦铁路": 2.5,
+    "国电电力": 3.5,
+    "川投能源": 2.5,
+    "中国中车": 2.0,
+    "伊利股份": 2.5
+   },
+   "cash_pct": 62.0,
+   "account_scale": {
+    "account_assets": 5044.42,
+    "var95_1d_amount": -27.74,
+    "var99_1d_amount": -42.88,
+    "cvar95_1d_amount": -35.31
+   },
+   "sample": {
+    "start": "2025-10-29",
+    "end": "2026-11-10",
+    "n_bars": 251,
+    "n_returns": 250,
+    "stocks_included": 12
+   }
+  },
+  "vanke_400": {
+   "prior_estimate_reconcile": {
+    "prior": {
+     "stop": 3.16,
+     "distance_pct": -2.47,
+     "garch_var95_1d_pct": -4.15
+    },
+    "recomputed": {
+     "distance_pct": -1.25,
+     "garch_var95_1d_pct": -3.85
+    },
+    "diff_distance_pp": 1.22,
+    "diff_var95_pp": 0.3,
+    "note": "差异 ≤0.05pp 视为一致；本次差异来自日K数据源（Sina 未复权 vs 之前腾讯复权缓存）与 GARCH 样本区间，非口径冲突。"
+   },
+   "metrics": {
+    "label": "万科A sz000002（400 股）",
+    "n_returns": 250,
+    "annual_return_pct": -49.56,
+    "annual_volatility_pct": 40.37,
+    "max_drawdown_pct": -53.25,
+    "sharpe": -1.49,
+    "sortino": -2.17,
+    "calmar": -0.93,
+    "var95_daily_pct": -3.63,
+    "var99_daily_pct": -6.02,
+    "cvar95_daily_pct": -4.88,
+    "metrics_source": "empyrical-reloaded",
+    "quantstats_crosscheck": {
+     "error": "未能核实: Input data must be pandas Series or DataFrame, got <class 'numpy.ndarray'>"
+    },
+    "garch": {
+     "cond_vol_daily_pct": 2.34,
+     "var95_1d_pct": -3.85,
+     "var95_5d_pct": -8.81,
+     "note": null
+    },
+    "position": {
+     "shares": 400,
+     "cost": 3.3425,
+     "price": 3.2,
+     "market_value": 1280.0,
+     "pnl": -57.0,
+     "pnl_pct": -4.26,
+     "var95_1d_price": 3.077
+    }
+   },
+   "garch_cond_vol_daily_pct": 2.34,
+   "garch_var95_1d_pct": -3.85,
+   "garch_var95_5d_pct": -8.81,
+   "stop_analysis": [
+    {
+     "stop": 3.16,
+     "distance_pct": 1.25,
+     "within_1d_var95": true,
+     "within_5d_var95": true,
+     "garch_var95_1d_price": 3.077,
+     "prob_touch_1d_pct_terminal": 29.66,
+     "prob_touch_1d_pct_first_passage_upper": 59.32,
+     "prob_touch_5d_pct_terminal": 40.56,
+     "prob_touch_5d_pct_first_passage_upper": 81.12
+    },
+    {
+     "stop": 3.1,
+     "distance_pct": 3.13,
+     "within_1d_var95": true,
+     "within_5d_var95": true,
+     "garch_var95_1d_price": 3.077,
+     "prob_touch_1d_pct_terminal": 9.09,
+     "prob_touch_1d_pct_first_passage_upper": 18.17,
+     "prob_touch_5d_pct_terminal": 27.52,
+     "prob_touch_5d_pct_first_passage_upper": 55.03
+    }
+   ],
+   "note": "触发概率为正态近似：terminal=Φ(-d/(σ√T))，first_passage_upper=2Φ(-d/(σ√T))（无漂移首达上界）；未考虑趋势/跳空/停牌，仅作量级参考，非预测。"
+  },
+  "icbc_single": {
+   "label": "工商银行 sh601398（组合最大权重单票参照）",
+   "n_returns": 250,
+   "annual_return_pct": 16.85,
+   "annual_volatility_pct": 19.6,
+   "max_drawdown_pct": -15.91,
+   "sharpe": 0.89,
+   "sortino": 1.33,
+   "calmar": 1.06,
+   "var95_daily_pct": -2.0,
+   "var99_daily_pct": -2.96,
+   "cvar95_daily_pct": -2.58,
+   "metrics_source": "empyrical-reloaded",
+   "quantstats_crosscheck": {
+    "error": "未能核实: Input data must be pandas Series or DataFrame, got <class 'numpy.ndarray'>"
+   },
+   "garch": {
+    "cond_vol_daily_pct": 1.33,
+    "var95_1d_pct": -2.19,
+    "var95_5d_pct": -4.86,
+    "note": null
+   },
+   "position": {
+    "price": 8.6,
+    "var95_1d_price": 8.412
+   }
+  }
+ },
+ "checks": {
+  "A_all_stops_budget": {
+   "computed_total_pct": -2.571,
+   "declared_total_pct": -2.883,
+   "diff_pp": -0.3121,
+   "limit_pct": -3.0,
+   "pass_reconcile": false,
+   "pass_limit": true,
+   "rows": [
+    {
+     "symbol": "sh601398",
+     "name": "工商银行",
+     "weight_pct": 5.0,
+     "price": 8.6,
+     "stop_loss": 7.906,
+     "stop_distance_pct": 8.07,
+     "loss_contribution_pct": 0.4035
+    },
+    {
+     "symbol": "sh601318",
+     "name": "中国平安",
+     "weight_pct": 3.0,
+     "price": 54.1,
+     "stop_loss": 52.029,
+     "stop_distance_pct": 3.828,
+     "loss_contribution_pct": 0.1148
+    },
+    {
+     "symbol": "sh600941",
+     "name": "中国移动",
+     "weight_pct": 5.0,
+     "price": 101.55,
+     "stop_loss": 95.662,
+     "stop_distance_pct": 5.798,
+     "loss_contribution_pct": 0.2899
+    },
+    {
+     "symbol": "sh601857",
+     "name": "中国石油",
+     "weight_pct": 3.0,
+     "price": 11.82,
+     "stop_loss": 11.344,
+     "stop_distance_pct": 4.027,
+     "loss_contribution_pct": 0.1208
+    },
+    {
+     "symbol": "sh601088",
+     "name": "中国神华",
+     "weight_pct": 3.0,
+     "price": 48.8,
+     "stop_loss": 45.453,
+     "stop_distance_pct": 6.859,
+     "loss_contribution_pct": 0.2058
+    },
+    {
+     "symbol": "sh601668",
+     "name": "中国建筑",
+     "weight_pct": 3.0,
+     "price": 4.65,
+     "stop_loss": 4.304,
+     "stop_distance_pct": 7.441,
+     "loss_contribution_pct": 0.2232
+    },
+    {
+     "symbol": "sz000651",
+     "name": "格力电器",
+     "weight_pct": 3.0,
+     "price": 39.1,
+     "stop_loss": 37.263,
+     "stop_distance_pct": 4.698,
+     "loss_contribution_pct": 0.1409
+    },
+    {
+     "symbol": "sh601006",
+     "name": "大秦铁路",
+     "weight_pct": 2.5,
+     "price": 4.86,
+     "stop_loss": 4.663,
+     "stop_distance_pct": 4.053,
+     "loss_contribution_pct": 0.1013
+    },
+    {
+     "symbol": "sh600795",
+     "name": "国电电力",
+     "weight_pct": 3.5,
+     "price": 5.41,
+     "stop_loss": 5.051,
+     "stop_distance_pct": 6.636,
+     "loss_contribution_pct": 0.2323
+    },
+    {
+     "symbol": "sh600674",
+     "name": "川投能源",
+     "weight_pct": 2.5,
+     "price": 17.49,
+     "stop_loss": 15.843,
+     "stop_distance_pct": 9.417,
+     "loss_contribution_pct": 0.2354
+    },
+    {
+     "symbol": "sh601766",
+     "name": "中国中车",
+     "weight_pct": 2.0,
+     "price": 6.42,
+     "stop_loss": 6.014,
+     "stop_distance_pct": 6.324,
+     "loss_contribution_pct": 0.1265
+    },
+    {
+     "symbol": "sh600887",
+     "name": "伊利股份",
+     "weight_pct": 2.5,
+     "price": 31.14,
+     "stop_loss": 26.451,
+     "stop_distance_pct": 15.058,
+     "loss_contribution_pct": 0.3764
+    }
+   ],
+   "note": "loss_contribution_pct = 权重 × 止损距离，均为「对总资产」口径；computed 按 11-06 快照价与组合 JSON 止损价复算。"
+  },
+  "B_stop_vs_garch_var95": {
+   "metric": "止损距离(%) vs 该股 GARCH(1,1) 1 日 VaR95 绝对值(%)；止损距离更小 = 在正常日内波动以内 = 易被噪声打掉",
+   "noise_prone_1d_symbols": [
+    "中国石油（止损距离 4.03% < GARCH 1日VaR95 5.75%）"
+   ],
+   "noise_prone_5d_symbols": [
+    "中国平安（止损距离 3.83% < GARCH 5日VaR95 6.07%）",
+    "中国石油（止损距离 4.03% < GARCH 5日VaR95 12.33%）",
+    "中国神华（止损距离 6.86% < GARCH 5日VaR95 8.51%）",
+    "大秦铁路（止损距离 4.05% < GARCH 5日VaR95 4.60%）"
+   ],
+   "note_1d": "严格口径：止损距离 < 该股 GARCH 1 日 VaR95 绝对值 → 一个 95% 分位的日内波动就能打掉，属噪声级止损。本次 12 只均未触（止损距离 4.45%–15.90%，1 日 VaR95 仅 1.7%–5.0%）。",
+   "note_5d": "宽松口径：止损距离 < 该股 GARCH 5 日 VaR95 绝对值 → 一周内出现 95% 分位的正常波动就可能触发，值得关注（非错误，但说明止损偏紧）。",
+   "rows": [
+    {
+     "symbol": "sh601398",
+     "name": "工商银行",
+     "weight_pct": 5.0,
+     "price": 8.6,
+     "stop_loss": 7.906,
+     "stop_distance_pct": 8.07,
+     "garch_cond_vol_daily_pct": 1.33,
+     "garch_var95_1d_pct": -2.19,
+     "garch_var95_5d_pct": -4.86,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": false,
+     "garch_var95_1d_price": 8.412,
+     "prob_touch_1d_pct_terminal": 0.0
+    },
+    {
+     "symbol": "sh601318",
+     "name": "中国平安",
+     "weight_pct": 3.0,
+     "price": 54.1,
+     "stop_loss": 52.029,
+     "stop_distance_pct": 3.83,
+     "garch_cond_vol_daily_pct": 1.61,
+     "garch_var95_1d_pct": -2.65,
+     "garch_var95_5d_pct": -6.07,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": true,
+     "garch_var95_1d_price": 52.666,
+     "prob_touch_1d_pct_terminal": 0.87
+    },
+    {
+     "symbol": "sh600941",
+     "name": "中国移动",
+     "weight_pct": 5.0,
+     "price": 101.55,
+     "stop_loss": 95.662,
+     "stop_distance_pct": 5.8,
+     "garch_cond_vol_daily_pct": 1.38,
+     "garch_var95_1d_pct": -2.27,
+     "garch_var95_5d_pct": -5.08,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": false,
+     "garch_var95_1d_price": 99.245,
+     "prob_touch_1d_pct_terminal": 0.0
+    },
+    {
+     "symbol": "sh601857",
+     "name": "中国石油",
+     "weight_pct": 3.0,
+     "price": 11.82,
+     "stop_loss": 11.344,
+     "stop_distance_pct": 4.03,
+     "garch_cond_vol_daily_pct": 3.49,
+     "garch_var95_1d_pct": -5.75,
+     "garch_var95_5d_pct": -12.33,
+     "garch_note": null,
+     "within_1d_var95": true,
+     "within_5d_var95": true,
+     "garch_var95_1d_price": 11.14,
+     "prob_touch_1d_pct_terminal": 12.43
+    },
+    {
+     "symbol": "sh601088",
+     "name": "中国神华",
+     "weight_pct": 3.0,
+     "price": 48.8,
+     "stop_loss": 45.453,
+     "stop_distance_pct": 6.86,
+     "garch_cond_vol_daily_pct": 2.32,
+     "garch_var95_1d_pct": -3.82,
+     "garch_var95_5d_pct": -8.51,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": true,
+     "garch_var95_1d_price": 46.936,
+     "prob_touch_1d_pct_terminal": 0.16
+    },
+    {
+     "symbol": "sh601668",
+     "name": "中国建筑",
+     "weight_pct": 3.0,
+     "price": 4.65,
+     "stop_loss": 4.304,
+     "stop_distance_pct": 7.44,
+     "garch_cond_vol_daily_pct": 1.01,
+     "garch_var95_1d_pct": -1.67,
+     "garch_var95_5d_pct": -3.73,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": false,
+     "garch_var95_1d_price": 4.572,
+     "prob_touch_1d_pct_terminal": 0.0
+    },
+    {
+     "symbol": "sz000651",
+     "name": "格力电器",
+     "weight_pct": 3.0,
+     "price": 39.1,
+     "stop_loss": 37.263,
+     "stop_distance_pct": 4.7,
+     "garch_cond_vol_daily_pct": 0.94,
+     "garch_var95_1d_pct": -1.54,
+     "garch_var95_5d_pct": -3.91,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": false,
+     "garch_var95_1d_price": 38.498,
+     "prob_touch_1d_pct_terminal": 0.0
+    },
+    {
+     "symbol": "sh601006",
+     "name": "大秦铁路",
+     "weight_pct": 2.5,
+     "price": 4.86,
+     "stop_loss": 4.663,
+     "stop_distance_pct": 4.05,
+     "garch_cond_vol_daily_pct": 1.25,
+     "garch_var95_1d_pct": -2.06,
+     "garch_var95_5d_pct": -4.6,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": true,
+     "garch_var95_1d_price": 4.76,
+     "prob_touch_1d_pct_terminal": 0.06
+    },
+    {
+     "symbol": "sh600795",
+     "name": "国电电力",
+     "weight_pct": 3.5,
+     "price": 5.41,
+     "stop_loss": 5.051,
+     "stop_distance_pct": 6.64,
+     "garch_cond_vol_daily_pct": 1.34,
+     "garch_var95_1d_pct": -2.21,
+     "garch_var95_5d_pct": -5.49,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": false,
+     "garch_var95_1d_price": 5.29,
+     "prob_touch_1d_pct_terminal": 0.0
+    },
+    {
+     "symbol": "sh600674",
+     "name": "川投能源",
+     "weight_pct": 2.5,
+     "price": 17.49,
+     "stop_loss": 15.843,
+     "stop_distance_pct": 9.42,
+     "garch_cond_vol_daily_pct": 1.36,
+     "garch_var95_1d_pct": -2.24,
+     "garch_var95_5d_pct": -5.01,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": false,
+     "garch_var95_1d_price": 17.098,
+     "prob_touch_1d_pct_terminal": 0.0
+    },
+    {
+     "symbol": "sh601766",
+     "name": "中国中车",
+     "weight_pct": 2.0,
+     "price": 6.42,
+     "stop_loss": 6.014,
+     "stop_distance_pct": 6.32,
+     "garch_cond_vol_daily_pct": 1.33,
+     "garch_var95_1d_pct": -2.19,
+     "garch_var95_5d_pct": -5.28,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": false,
+     "garch_var95_1d_price": 6.279,
+     "prob_touch_1d_pct_terminal": 0.0
+    },
+    {
+     "symbol": "sh600887",
+     "name": "伊利股份",
+     "weight_pct": 2.5,
+     "price": 31.14,
+     "stop_loss": 26.451,
+     "stop_distance_pct": 15.06,
+     "garch_cond_vol_daily_pct": 1.15,
+     "garch_var95_1d_pct": -1.88,
+     "garch_var95_5d_pct": -4.41,
+     "garch_note": null,
+     "within_1d_var95": false,
+     "within_5d_var95": false,
+     "garch_var95_1d_price": 30.555,
+     "prob_touch_1d_pct_terminal": 0.0
+    }
+   ],
+   "vanke": [
+    {
+     "stop": 3.16,
+     "distance_pct": 1.25,
+     "within_1d_var95": true,
+     "within_5d_var95": true,
+     "garch_var95_1d_price": 3.077,
+     "prob_touch_1d_pct_terminal": 29.66,
+     "prob_touch_1d_pct_first_passage_upper": 59.32,
+     "prob_touch_5d_pct_terminal": 40.56,
+     "prob_touch_5d_pct_first_passage_upper": 81.12
+    },
+    {
+     "stop": 3.1,
+     "distance_pct": 3.13,
+     "within_1d_var95": true,
+     "within_5d_var95": true,
+     "garch_var95_1d_price": 3.077,
+     "prob_touch_1d_pct_terminal": 9.09,
+     "prob_touch_1d_pct_first_passage_upper": 18.17,
+     "prob_touch_5d_pct_terminal": 27.52,
+     "prob_touch_5d_pct_first_passage_upper": 55.03
+    }
+   ]
+  }
+ },
+ "unverified": [],
+ "disclaimer": "本文件为团队研究记录，指标基于历史价格统计，不构成投资建议、不承诺收益；GARCH 触发概率为正态近似，非预测。"
+}

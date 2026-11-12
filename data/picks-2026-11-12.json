@@ -1,0 +1,67 @@
+{
+ "date": "2026-11-12",
+ "snapshot": "snapshot-2026-11-12.json",
+ "count": 3,
+ "strong_mode": "涨幅为正",
+ "strong_sectors": [
+  "公路桥梁",
+  "农林牧渔",
+  "印刷包装",
+  "次新股",
+  "酿酒行业",
+  "陶瓷行业"
+ ],
+ "index_above_ma20": false,
+ "blocked_strategies": [
+  "C 涨停回踩",
+  "E 超跌反弹"
+ ],
+ "price_cap": 23.56,
+ "picks": [
+  {
+   "symbol": "sz003006",
+   "name": "百亚股份",
+   "price": 22.99,
+   "strategy": "A 回踩MA20",
+   "score": 10,
+   "note": "MA20 22.97 上方多头，缩量 0.91，mom20 0.7%",
+   "sector": "",
+   "vol20": 58.9,
+   "mom20": 0.74,
+   "ma20": 22.97,
+   "ma60": 19.44,
+   "vr": 0.91,
+   "breakeven_pct": 0.48
+  },
+  {
+   "symbol": "sz002354",
+   "name": "天娱数科",
+   "price": 8.2,
+   "strategy": "F 多头浅回踩",
+   "score": 8.49,
+   "note": "均线多头排列，回踩 MA10 8.12，mom20 8.8%",
+   "sector": "",
+   "vol20": 75.7,
+   "mom20": 8.75,
+   "ma20": 7.98,
+   "ma60": 7.76,
+   "vr": 0.87,
+   "breakeven_pct": 1.27
+  },
+  {
+   "symbol": "sh600919",
+   "name": "江苏银行",
+   "price": 12.94,
+   "strategy": "F 多头浅回踩",
+   "score": 8.28,
+   "note": "均线多头排列，回踩 MA10 12.75，mom20 5.7%",
+   "sector": "",
+   "vol20": 20.7,
+   "mom20": 5.72,
+   "ma20": 12.55,
+   "ma60": 12.3,
+   "vr": 0.83,
+   "breakeven_pct": 0.82
+  }
+ ]
+}

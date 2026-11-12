@@ -1,0 +1,161 @@
+{
+ "date": "2026-11-12",
+ "generated_at": "2026-11-11 23:23:27",
+ "plan_name": "2026-11-12 交易日监控计划（make_plan 自动生成，润行终审后生效）",
+ "account": {
+  "broker": "平安证券",
+  "total_assets": null,
+  "cash": null,
+  "positions": [
+   {
+    "symbol": "sz000002",
+    "name": "万 科Ａ",
+    "qty": 200,
+    "sellable": 200,
+    "cost": 3.3425,
+    "price": 3.2,
+    "market_value": 640.0,
+    "pnl": -28.5,
+    "pnl_pct": -4.26,
+    "day_pnl": -8.0
+   },
+   {
+    "symbol": "sh601006",
+    "name": "大秦铁路",
+    "qty": 300,
+    "sellable": 300,
+    "cost": 4.9267,
+    "price": 4.8,
+    "market_value": 1440.0,
+    "pnl": -38.01,
+    "pnl_pct": -2.57,
+    "day_pnl": -18.0
+   }
+  ]
+ },
+ "watch": [
+  "sh000001",
+  "sz399006",
+  "sz000002",
+  "sh601006",
+  "sz002600"
+ ],
+ "rules": [
+  {
+   "id": "index_ma20_up",
+   "label": "上证收复 MA20 3675.293（升级观察）",
+   "symbol": "sh000001",
+   "op": ">=",
+   "price": 3675.29,
+   "action": "notify",
+   "cooldown_sec": 1800,
+   "note": "收盘站上且连续2日+量能确认后才考虑加仓，盘中只提示"
+  },
+  {
+   "id": "index_250low_break",
+   "label": "上证跌破 250 日低 3574.27（降级）",
+   "symbol": "sh000001",
+   "op": "<=",
+   "price": 3574.27,
+   "action": "risk_off",
+   "cooldown_sec": 900,
+   "note": "系统性风险：取消当日全部买入，只处理卖出"
+  },
+  {
+   "id": "sz000002_stop_1_3_1",
+   "label": "万 科Ａ 止损 3.1（云条件单/硬止损）",
+   "symbol": "sz000002",
+   "op": "<=",
+   "price": 3.1,
+   "action": "sell_ready",
+   "side": "sell",
+   "qty": 200,
+   "cooldown_sec": 600,
+   "note": "已减半仓200股@3.16；剩余200股止损3.10；反弹3.40减200（清仓）；现价 3.2，MA20 3.326"
+  },
+  {
+   "id": "sz000002_rebound",
+   "label": "万 科Ａ 反弹 3.4 减仓",
+   "symbol": "sz000002",
+   "op": ">=",
+   "price": 3.4,
+   "action": "sell_ready",
+   "side": "sell",
+   "qty": 200,
+   "cooldown_sec": 1800,
+   "note": "已减半仓200股@3.16；剩余200股止损3.10；反弹3.40减200（清仓）"
+  },
+  {
+   "id": "index_pct_drop",
+   "label": "上证日内跌幅≤-3.0%（极端风险）",
+   "symbol": "sh000001",
+   "op": "<=",
+   "price": -3.0,
+   "field": "pct",
+   "action": "risk_off",
+   "cooldown_sec": 600,
+   "note": "极端行情：取消当日全部买入，评估减仓；润行可直接执行紧急止损"
+  },
+  {
+   "id": "sz000002_emergency_pct",
+   "label": "万 科Ａ 日内跌幅≤-7.0% 紧急止损",
+   "symbol": "sz000002",
+   "op": "<=",
+   "price": -7.0,
+   "field": "pct",
+   "action": "emergency_sell",
+   "side": "sell",
+   "qty": 200,
+   "cooldown_sec": 300,
+   "note": "用户已授权：不等用户确认，直接市价/对手价卖出该持仓"
+  },
+  {
+   "id": "sz002600_notify_1137",
+   "label": "领益智造 跌破11.37提醒（T+1不可卖）",
+   "symbol": "sz002600",
+   "op": "<=",
+   "price": 11.37,
+   "action": "notify",
+   "cooldown_sec": 1800,
+   "note": "今日买入T+1，明日开盘处理；今日跌破仅提醒"
+  }
+ ],
+ "guards": {
+  "no_new_position_before": "10:00",
+  "max_new_positions_today": 1,
+  "note": "小资金：现金≥60%，5044元账户买2手后现金≈55%→红线，故每日最多新开1手；新开仓 1 手金额须≥600元（最低佣金5元使1手<600元费比>1.7%）；同票加仓按合并金额计算",
+  "min_new_position_value": 600,
+  "pool_updated": "2026-11-11",
+  "pool_note": "11-12：持仓2只已满，须先清万科才有名额；候选仅领益（条件版），视觉中国仅观察",
+  "buy_block_if_index_below": 3574.271
+ },
+ "session": {
+  "weekdays_only": true,
+  "windows": [
+   "09:15-11:30",
+   "13:00-15:00"
+  ],
+  "holidays": [
+   "2027-01-01"
+  ]
+ },
+ "notify": {
+  "phone": true,
+  "note": "触发后润行通知用户并打开通达信预填单；成交须用户指纹/密码"
+ },
+ "source": {
+  "watchlist": "data/watchlist.json",
+  "account_state": "data/account-state.json",
+  "portfolio": "portfolio-2026-11-06.json"
+ },
+ "index_levels": {
+  "ma20": 3675.293,
+  "low250": 3574.27
+ },
+ "emergency_policy": {
+  "authorized_by": "用户 2026-11-07",
+  "L0": "计划内止损触发即卖（免密，不请示）",
+  "L1": "上证日跌幅≤-3.0% 或持仓日跌幅≤-7.0% → 直接紧急止损",
+  "L2": "离线兜底：通达信云条件单（当前仅人工委托，自动委托本机未开放）"
+ }
+}
