@@ -1,0 +1,244 @@
+{
+ "date": "2026-11-16",
+ "generated_at": "2026-11-13 16:11:54",
+ "plan_name": "2026-11-16 交易日监控计划（make_plan 自动生成，润行终审后生效）",
+ "account": {
+  "broker": "某券商",
+  "total_assets": null,
+  "cash": null,
+  "positions": [
+   {
+    "symbol": "sz000002",
+    "name": "万 科Ａ",
+    "qty": 200
+   },
+   {
+    "symbol": "sz002600",
+    "name": "领益智造",
+    "qty": 100
+   }
+  ]
+ },
+ "watch": [
+  "sh000001",
+  "sz399006",
+  "sz000002",
+  "sz002600",
+  "sh600825",
+  "sh603730",
+  "sz002639",
+  "sz002292",
+  "sh600977"
+ ],
+ "rules": [
+  {
+   "id": "index_ma20_up",
+   "label": "上证收复 MA20 3668.614（升级观察）",
+   "symbol": "sh000001",
+   "op": ">=",
+   "price": 3668.61,
+   "action": "notify",
+   "cooldown_sec": 1800,
+   "note": "收盘站上且连续2日+量能确认后才考虑加仓，盘中只提示"
+  },
+  {
+   "id": "index_250low_break",
+   "label": "上证跌破 250 日低 3574.27（降级）",
+   "symbol": "sh000001",
+   "op": "<=",
+   "price": 3574.27,
+   "action": "risk_off",
+   "cooldown_sec": 900,
+   "note": "系统性风险：取消当日全部买入，只处理卖出"
+  },
+  {
+   "id": "sz000002_stop_1_3_1",
+   "label": "万 科Ａ 止损 3.1（云条件单/硬止损）",
+   "symbol": "sz000002",
+   "op": "<=",
+   "price": 3.1,
+   "action": "sell_ready",
+   "side": "sell",
+   "qty": 200,
+   "cooldown_sec": 600,
+   "note": "已减半仓200股@3.16；剩余200股止损3.10；反弹3.40减200（清仓）；现价 3.06，MA20 3.273"
+  },
+  {
+   "id": "sz000002_rebound",
+   "label": "万 科Ａ 反弹 3.4 减仓",
+   "symbol": "sz000002",
+   "op": ">=",
+   "price": 3.4,
+   "action": "sell_ready",
+   "side": "sell",
+   "qty": 200,
+   "cooldown_sec": 1800,
+   "note": "已减半仓200股@3.16；剩余200股止损3.10；反弹3.40减200（清仓）"
+  },
+  {
+   "id": "sz002600_stop_1_11_37",
+   "label": "领益智造 止损 11.37（云条件单/硬止损）",
+   "symbol": "sz002600",
+   "op": "<=",
+   "price": 11.37,
+   "action": "sell_ready",
+   "side": "sell",
+   "qty": 100,
+   "cooldown_sec": 600,
+   "note": "T+1 明日可卖；止损 11.37（MA20），站回 11.95 可持有；反弹 12.0 提示；现价 11.42，MA20 11.436"
+  },
+  {
+   "id": "sz002600_rebound",
+   "label": "领益智造 反弹 12.0 提示",
+   "symbol": "sz002600",
+   "op": ">=",
+   "price": 12.0,
+   "action": "notify",
+   "side": null,
+   "qty": null,
+   "cooldown_sec": 1800,
+   "note": "T+1 明日可卖；止损 11.37（MA20），站回 11.95 可持有；反弹 12.0 提示"
+  },
+  {
+   "id": "index_pct_drop",
+   "label": "上证日内跌幅≤-3.0%（极端风险）",
+   "symbol": "sh000001",
+   "op": "<=",
+   "price": -3.0,
+   "field": "pct",
+   "action": "risk_off",
+   "cooldown_sec": 600,
+   "note": "极端行情：取消当日全部买入，评估减仓；润行可直接执行紧急止损"
+  },
+  {
+   "id": "sz000002_emergency_pct",
+   "label": "万 科Ａ 日内跌幅≤-7.0% 紧急止损",
+   "symbol": "sz000002",
+   "op": "<=",
+   "price": -7.0,
+   "field": "pct",
+   "action": "emergency_sell",
+   "side": "sell",
+   "qty": 200,
+   "cooldown_sec": 300,
+   "note": "用户已授权：不等用户确认，直接市价/对手价卖出该持仓"
+  },
+  {
+   "id": "sz002600_emergency_pct",
+   "label": "领益智造 日内跌幅≤-7.0% 紧急止损",
+   "symbol": "sz002600",
+   "op": "<=",
+   "price": -7.0,
+   "field": "pct",
+   "action": "emergency_sell",
+   "side": "sell",
+   "qty": 100,
+   "cooldown_sec": 300,
+   "note": "用户已授权：不等用户确认，直接市价/对手价卖出该持仓"
+  },
+  {
+   "id": "sh600825_buy",
+   "label": "新华传媒 1 手买点",
+   "symbol": "sh600825",
+   "op": "<=",
+   "price": 14.23,
+   "floor": 13.8,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 3600,
+   "note": "评分0.947；波动86.3%；mom20 5.73%；额18.89亿；MA20 14.127，MA60 8.952"
+  },
+  {
+   "id": "sh603730_buy",
+   "label": "岱美股份 1 手买点",
+   "symbol": "sh603730",
+   "op": "<=",
+   "price": 10.17,
+   "floor": 9.86,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 3600,
+   "note": "评分0.864；波动85.9%；mom20 4.62%；额6.92亿；MA20 10.189，MA60 10.165"
+  },
+  {
+   "id": "sz002639_buy",
+   "label": "雪人集团 1 手买点",
+   "symbol": "sz002639",
+   "op": "<=",
+   "price": 14.68,
+   "floor": 14.24,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 3600,
+   "note": "评分0.833；波动74.8%；mom20 -0.91%；额16.88亿；MA20 14.622，MA60 13.748"
+  },
+  {
+   "id": "sz002292_buy",
+   "label": "奥飞娱乐 1 手买点",
+   "symbol": "sz002292",
+   "op": "<=",
+   "price": 9.21,
+   "floor": 8.93,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 3600,
+   "note": "评分0.833；波动78.7%；mom20 4.71%；额10.51亿；MA20 9.218，MA60 8.768"
+  },
+  {
+   "id": "sh600977_buy",
+   "label": "中国电影 1 手买点",
+   "symbol": "sh600977",
+   "op": "<=",
+   "price": 14.95,
+   "floor": 14.5,
+   "action": "buy_ready",
+   "side": "buy",
+   "qty": 100,
+   "cooldown_sec": 3600,
+   "note": "评分0.76；波动43.5%；mom20 9.31%；额7.23亿；MA20 15.099，MA60 13.624"
+  }
+ ],
+ "guards": {
+  "no_new_position_before": "10:00",
+  "max_new_positions_today": 1,
+  "note": "小资金：现金≥60%，5044元账户买2手后现金≈55%→红线，故每日最多新开1手；新开仓 1 手金额须≥600元（最低佣金5元使1手<600元费比>1.7%）；同票加仓按合并金额计算；持仓已满2只时不生成任何买单",
+  "min_new_position_value": 600,
+  "pool_updated": "2026-11-12",
+  "pool_note": "11-13：持仓3只已满，不新开；只做止损/减仓",
+  "max_positions": 2,
+  "buy_block_if_index_below": 3574.27
+ },
+ "session": {
+  "weekdays_only": true,
+  "windows": [
+   "09:15-11:30",
+   "13:00-15:00"
+  ],
+  "holidays": [
+   "2027-01-01"
+  ]
+ },
+ "notify": {
+  "phone": true,
+  "note": "触发后润行通知用户并打开通达信预填单；成交须用户指纹/密码"
+ },
+ "source": {
+  "watchlist": "data/watchlist.json",
+  "account_state": "data/account-state.json",
+  "portfolio": "portfolio-2026-11-06.json"
+ },
+ "index_levels": {
+  "ma20": 3668.614,
+  "low250": 3574.27
+ },
+ "emergency_policy": {
+  "authorized_by": "用户 2026-11-07",
+  "L0": "计划内止损触发即卖（免密，不请示）",
+  "L1": "上证日跌幅≤-3.0% 或持仓日跌幅≤-7.0% → 直接紧急止损",
+  "L2": "离线兜底：通达信云条件单（当前仅人工委托，自动委托本机未开放）"
+ }
+}
